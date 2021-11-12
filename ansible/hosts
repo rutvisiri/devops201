@@ -16,7 +16,11 @@
 ## 192.168.100.10
 
 # Ex 2: A collection of hosts belonging to the 'webservers' group
-
+[master]
+172.31.10.223
+[slave]
+172.31.1.161
+172.31.15.83 
 ## [webservers]
 ## alpha.example.org
 ## beta.example.org

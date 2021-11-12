@@ -1,0 +1,15 @@
+---
+ - hosts: slave
+   tasks:
+   - name: Install latest version of httpd Apache
+     yum: name=httpd state=latest
+   - name: Copy the conent to some file
+     copy: content="This is Chaitanya, my new HTML page" dest=/var/www/html/index.html
+     notify:
+     - restart apache
+   - name: Ensure apache is running (and enable it at boot)
+     service: name=httpd state=started enabled=yes
+   handlers:
+     - name: restart apache
+       service: name=httpd state=restarted
+
